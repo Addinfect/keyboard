@@ -5,29 +5,24 @@ on:
     branches:
       - main
     # Paths can be used to only trigger actions when you have edited certain files, such as a file within the /docs directory
-    paths:
-      - 'docs/**.md'
-      - 'docs/images/**'
+    # paths:
+    #   - 'docs/**.md'
+    #   - 'docs/images/**'
 
 jobs:
   converttopdf:
     name: Build PDF
     runs-on: ubuntu-latest
     steps:
-      - name: Group of log lines
+      - name: Install converter
         run: |
           echo "::group::My title"
-          npm i mermaid
-      - uses: actions/checkout@v3
-      - uses: baileyjm02/markdown-to-pdf@v1
-        with:
-          input_dir: docs
-          output_dir: pdfs
-          images_dir: docs/images
-          # for example <img src="./images/file-name.png">
-          image_import: ./images
-          # Default is true, can set to false to only get PDF files
-          build_html: false
+          sudo apt install pandoc -y
+          sudo apt-get install curl
+          npm i -g mermaid-filter
+          sudo apt-get -y install texlive-latex-recommended texlive-pictures texlive-latex-extra texlive-fonts-recommended
+      - name: Create PDF
+        run : pandoc  -F mermaid-filter -o docs/requirements.pdf requirements.md
       - uses: actions/upload-artifact@v3
         with:
           name: docs
