@@ -1,11 +1,16 @@
+
+
 # Overview
  In this project i want to develop my own keyboard. One goal of the project is to learn some basics with microcontroller, operating systems and peripherals. One inspiration is this keyboard: https://sagaklabs.com/products/bitt101
 
 
 # Ideas
 
+![alt text](img/Mindmap.png "Mindmap")
+
+<!---
 ```mermaid
-mindmap
+graph TD
   root((keyboard))
     hardware(hawdware)
       keyboard
@@ -35,3 +40,4 @@ mindmap
         select files?
       supports windows and linux
 ```
+--->
