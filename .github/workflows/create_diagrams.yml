@@ -30,7 +30,7 @@ jobs:
           ls -a
         working-directory: main
       - name: Create PDF
-        run : pandoc  -F mermaid-filter -o /docs/requirements.pdf /github/workspace/docs/requirements.md
+        run : pandoc  -F mermaid-filter -o /docs/requirements.pdf /docs/requirements.md
         working-directory: main
       - uses: actions/upload-artifact@v3
         with:
