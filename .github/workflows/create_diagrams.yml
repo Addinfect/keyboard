@@ -21,6 +21,8 @@ jobs:
           sudo apt-get install curl
           npm i -g mermaid-filter
           sudo apt-get -y install texlive-latex-recommended texlive-pictures texlive-latex-extra texlive-fonts-recommended
+          ls -a
+          ls docs/ -a
       - name: Create PDF
         run : pandoc  -F mermaid-filter -o docs/requirements.pdf docs/requirements.md
       - uses: actions/upload-artifact@v3
