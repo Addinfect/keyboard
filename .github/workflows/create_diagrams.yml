@@ -36,7 +36,7 @@ jobs:
           pandoc  -F mermaid-filter -o requirements.pdf ./docs/requirements.md
         working-directory: main
       - name: check file
-        run : ls -a
+        run : ls ./main -a
       - uses: actions/upload-artifact@v3
         with:
           name: docs
