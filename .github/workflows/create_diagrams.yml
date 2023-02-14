@@ -32,9 +32,11 @@ jobs:
         working-directory: main
       - name: Create PDF
         run : |
-          mkdir pdfs
+          mkdir output
           pandoc  -F mermaid-filter -o requirements.pdf ./docs/requirements.md
         working-directory: main
+      - name: check file
+        run : ls -a
       - uses: actions/upload-artifact@v3
         with:
           name: docs
