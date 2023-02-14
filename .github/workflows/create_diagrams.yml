@@ -33,9 +33,9 @@ jobs:
       - name: Create PDF
         run : |
           mkdir pdfs
-          pandoc  -F mermaid-filter -o ./pdfs/requirements.pdf ./docs/requirements.md
+          pandoc  -F mermaid-filter -o requirements.pdf ./docs/requirements.md
         working-directory: main
       - uses: actions/upload-artifact@v3
         with:
           name: docs
-          path: docs
+          path: requirements.pdf
