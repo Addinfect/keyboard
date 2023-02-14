@@ -28,6 +28,7 @@ jobs:
         run : |
           pwd
           ls -a
+          ls ./docs/ -a
         working-directory: main
       - name: Create PDF
         run : pandoc  -F mermaid-filter -o /docs/requirements.pdf /docs/requirements.md
